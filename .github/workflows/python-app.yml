@@ -26,15 +26,7 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: linting
-      uses: alexanderdamiani/pylinter@v1.1.1
-      with:
-        python-root: '.'
-        flake8-flags: ''
-        mypy-flags: '--ignore-missing-imports'
-        fail-on-isort: false
-        skip-flake8: true
-
+    
     - name: commit isort changes
       run: |
         git config --local user.email "action@github.com"
